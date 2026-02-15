@@ -1,0 +1,65 @@
+@use "@/shared/styles/variables" as *;
+@use "@/shared/styles/mixins" as *;
+@use "@/shared/styles/animations" as *;
+
+.layout {
+  display: flex;
+  min-height: 100vh;
+  background: $bg;
+}
+
+.main {
+  flex: 1;
+  overflow: auto;
+  background-color: rgba(20, 16, 29, 1);
+}
+
+.content {
+  max-width: 64rem;
+  margin: 0 auto;
+  padding: $sp-8 $sp-4;
+
+  @include md {
+    padding: $sp-8;
+  }
+}
+
+.skeleton {
+  display: flex;
+  min-height: 100vh;
+  background: $bg;
+}
+
+.skeletonSidebar {
+  display: none;
+  width: 10rem;
+  border-right: 1px solid $border;
+  background: $surface;
+
+  @include md {
+    display: block;
+  }
+}
+
+.skeletonMain {
+  flex: 1;
+  padding: $sp-8;
+}
+
+.skeletonBar {
+  @include skeleton;
+  background: $surface;
+}
+
+.skeletonBarSm {
+  composes: skeletonBar;
+  height: 2rem;
+  width: 12rem;
+}
+
+.skeletonBarLg {
+  composes: skeletonBar;
+  margin-top: $sp-6;
+  height: 16rem;
+  width: 100%;
+}

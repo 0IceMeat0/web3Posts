@@ -1,0 +1,71 @@
+@use "@/shared/styles/variables" as *;
+@use "@/shared/styles/mixins" as *;
+@use "@/shared/styles/animations" as *;
+
+.page {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  background: $bg;
+}
+
+.accentBar {
+  height: 4px;
+  width: 100%;
+  background: $gradient;
+}
+
+.center {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  padding: 0 $sp-4;
+}
+
+.card {
+  @include fade-slide-up;
+  width: 100%;
+  max-width: 24rem;
+}
+
+.brand {
+  margin-bottom: $sp-10;
+}
+
+.logoRow {
+  display: flex;
+  align-items: center;
+  gap: $sp-3;
+}
+
+.logoText {
+  @include font-mono;
+  @include text-4xl;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: $text;
+}
+
+.tagline {
+  margin-top: $sp-2;
+  @include font-mono;
+  @include text-xs;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: $text-secondary;
+}
+
+.hint {
+  margin-top: $sp-6;
+  text-align: center;
+  @include font-mono;
+  @include text-xs;
+  color: $text-secondary;
+}
+
+.loading {
+  @include flex-center;
+  min-height: 100vh;
+  background: $bg;
+}

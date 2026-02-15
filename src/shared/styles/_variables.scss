@@ -1,0 +1,42 @@
+$bg: #0d0d1a;
+$surface: #13131f;
+$surface-elevated: #1c1c2e;
+$border: #252538;
+$border-hover: #353550;
+$text: #f0f0f5;
+$text-secondary: #7a7a8e;
+
+$accent: #4657e5;
+$accent-hover: #5a6df0;
+$accent-muted: rgba(70, 87, 229, 0.15);
+
+$gradient: linear-gradient(135deg, #9557e8, #4657e5, #13dbf5);
+$gradient-text-start: #9557e8;
+$gradient-text-end: #13dbf5;
+
+$danger: #ff3355;
+$danger-hover: #ff5577;
+$danger-muted: rgba(255, 51, 85, 0.15);
+$success: #00cc66;
+$success-muted: rgba(0, 204, 102, 0.15);
+
+$font-sans: var(--font-geist-sans), system-ui, sans-serif;
+$font-mono: var(--font-geist-mono), monospace;
+
+$sp-1: 0.25rem;
+$sp-2: 0.5rem;
+$sp-3: 0.75rem;
+$sp-4: 1rem;
+$sp-5: 1.25rem;
+$sp-6: 1.5rem;
+$sp-8: 2rem;
+$sp-10: 2.5rem;
+$sp-12: 3rem;
+
+$bp-sm: 640px;
+$bp-md: 768px;
+$bp-lg: 1024px;
+
+$transition-fast: 0.15s ease;
+$transition-base: 0.2s ease;
+$transition-spring: 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);

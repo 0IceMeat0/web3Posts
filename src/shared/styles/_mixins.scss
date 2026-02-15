@@ -1,0 +1,130 @@
+@use "variables" as *;
+
+@mixin font-mono {
+  font-family: $font-mono;
+}
+
+@mixin font-sans {
+  font-family: $font-sans;
+}
+
+@mixin text-xs {
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
+@mixin text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+@mixin text-base {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+@mixin text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
+@mixin text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+@mixin text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+@mixin text-4xl {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin sm {
+  @media (min-width: $bp-sm) {
+    @content;
+  }
+}
+
+@mixin md {
+  @media (min-width: $bp-md) {
+    @content;
+  }
+}
+
+@mixin lg {
+  @media (min-width: $bp-lg) {
+    @content;
+  }
+}
+
+@mixin hover-spring {
+  transition: transform $transition-spring, box-shadow $transition-base;
+  will-change: transform;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: translateY(0) scale(0.98);
+  }
+}
+
+@mixin gradient-bg {
+  background: $gradient;
+  color: $bg;
+}
+
+@mixin gradient-border-left {
+  border-image: linear-gradient(to bottom, #9557e8, #4657e5, #13dbf5) 1;
+}
+
+@mixin gradient-text {
+  background: $gradient;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@mixin button-reset {
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+}
+
+@mixin transition-colors {
+  transition: color $transition-fast, background-color $transition-fast,
+    border-color $transition-fast;
+}
+
+@mixin line-clamp($lines: 1) {
+  display: -webkit-box;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@mixin reduced-motion {
+  @media (prefers-reduced-motion: reduce) {
+    @content;
+  }
+}

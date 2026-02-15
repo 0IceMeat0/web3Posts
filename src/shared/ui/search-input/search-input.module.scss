@@ -1,0 +1,60 @@
+@use "@/shared/styles/variables" as *;
+@use "@/shared/styles/mixins" as *;
+
+.wrapper {
+  position: relative;
+}
+
+.icon {
+  position: absolute;
+  left: $sp-2;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $text-secondary;
+  pointer-events: none;
+  @include transition-colors;
+
+  :global(svg) {
+    transition: stroke 0.2s ease;
+  }
+}
+
+.input {
+  width: 100%;
+  padding: $sp-2 + 0.125rem $sp-3 $sp-2 + 0.125rem $sp-8;
+  @include font-mono;
+  @include text-sm;
+  background: $surface;
+  border: 1px solid $border;
+  color: $text;
+  outline: none;
+  @include transition-colors;
+
+  &::placeholder {
+    color: $text-secondary;
+  }
+
+  &:focus {
+    border-color: $accent;
+  }
+}
+
+.clear {
+  @include button-reset;
+  position: absolute;
+  right: $sp-2;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 0 $sp-1;
+  @include font-mono;
+  @include text-xs;
+  color: $text-secondary;
+  @include transition-colors;
+
+  &:hover {
+    color: $accent;
+  }
+}

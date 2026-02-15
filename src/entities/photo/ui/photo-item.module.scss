@@ -1,0 +1,74 @@
+@use "@/shared/styles/variables" as *;
+@use "@/shared/styles/mixins" as *;
+@use "@/shared/styles/animations" as *;
+
+.item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid $border;
+  background: $surface;
+  text-decoration: none;
+  cursor: pointer;
+  @include transition-colors;
+
+  &:hover {
+    border-color: $accent;
+  }
+}
+
+.thumb {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  background: $bg;
+}
+
+.skeletonThumb {
+  @include skeleton;
+  position: absolute;
+  inset: 0;
+  background: $surface-elevated;
+}
+
+.image {
+  object-fit: cover;
+  transition: opacity 0.3s ease;
+}
+
+.imageHidden {
+  composes: image;
+  opacity: 0;
+}
+
+.imageVisible {
+  composes: image;
+  opacity: 1;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: transparent;
+  transition: background $transition-fast;
+
+  .item:hover & {
+    background: rgba($bg, 0.4);
+  }
+}
+
+.titleBar {
+  border-top: 1px solid $border;
+  padding: $sp-2;
+}
+
+.title {
+  @include font-mono;
+  @include text-xs;
+  color: $text-secondary;
+  @include line-clamp(1);
+
+  .item:hover & {
+    color: $text;
+  }
+}

@@ -1,0 +1,54 @@
+@use "@/shared/styles/variables" as *;
+@use "@/shared/styles/animations" as *;
+
+.bar {
+  @include skeleton;
+  background: $surface-elevated;
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+  gap: $sp-3;
+}
+
+.card {
+  border: 1px solid $border;
+  background: $surface;
+  padding: $sp-6;
+}
+
+.grid {
+  display: grid;
+  gap: $sp-2;
+  grid-template-columns: repeat(2, 1fr);
+
+  @media (min-width: 640px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.gridItem {
+  @include skeleton;
+  border: 1px solid $border;
+  background: $surface;
+}
+
+.gridThumb {
+  aspect-ratio: 4 / 3;
+  background: $surface-elevated;
+}
+
+.gridLabel {
+  padding: $sp-2;
+}
+
+.gridBar {
+  height: 12px;
+  width: 75%;
+  background: $surface-elevated;
+}

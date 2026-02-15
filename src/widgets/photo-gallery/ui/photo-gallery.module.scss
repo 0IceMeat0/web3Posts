@@ -1,0 +1,59 @@
+@use "@/shared/styles/variables" as *;
+@use "@/shared/styles/mixins" as *;
+@use "@/shared/styles/animations" as *;
+
+.heading {
+  margin-bottom: $sp-6;
+}
+
+.title {
+  @include font-mono;
+  @include text-2xl;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: $text;
+}
+
+.subtitle {
+  margin-top: $sp-1;
+  @include font-mono;
+  @include text-xs;
+  color: $text-secondary;
+}
+
+.searchArea {
+  margin-bottom: $sp-4;
+}
+
+.count {
+  margin-top: $sp-2;
+  @include font-mono;
+  @include text-xs;
+  color: $text-secondary;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $sp-2;
+
+  @include sm {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include lg {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.emptyState {
+  @include flex-center;
+  height: 16rem;
+}
+
+.emptyText {
+  @include font-mono;
+  @include text-sm;
+  color: $text-secondary;
+}
+

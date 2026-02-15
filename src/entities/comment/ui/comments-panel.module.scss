@@ -1,0 +1,78 @@
+@use "@/shared/styles/variables" as *;
+@use "@/shared/styles/mixins" as *;
+@use "@/shared/styles/animations" as *;
+
+.panel {
+  @include fade-in;
+  border-top: 1px solid $border;
+  background: $bg;
+  padding: $sp-4;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: $sp-2;
+  margin-bottom: $sp-3;
+}
+
+.heading {
+  @include font-mono;
+  @include text-xs;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: $text-secondary;
+}
+
+.pulse {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background: $accent;
+  animation: pulse-dot 1.2s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: $sp-3;
+}
+
+.comment {
+  @include fade-slide-up;
+  border-left: 1px solid $border;
+  padding-left: $sp-3;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0 $sp-2;
+}
+
+.name {
+  @include font-mono;
+  @include text-xs;
+  font-weight: 700;
+  color: $text;
+}
+
+.email {
+  @include font-mono;
+  @include text-xs;
+  color: $text-secondary;
+}
+
+.commentBody {
+  margin-top: 2px;
+  @include text-sm;
+  line-height: 1.625;
+  color: $text-secondary;
+}

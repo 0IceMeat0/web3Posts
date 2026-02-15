@@ -1,0 +1,93 @@
+@use "@/shared/styles/variables" as *;
+@use "@/shared/styles/mixins" as *;
+@use "@/shared/styles/animations" as *;
+
+.header {
+  margin-bottom: $sp-8;
+}
+
+.backLink {
+  display: inline-block;
+  margin-bottom: $sp-4;
+  @include font-mono;
+  @include text-xs;
+  color: $text-secondary;
+  text-decoration: none;
+  @include transition-colors;
+
+  &:hover {
+    color: $accent;
+  }
+}
+
+.title {
+  @include font-mono;
+  @include text-2xl;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: $text;
+}
+
+.titleId {
+  color: $text-secondary;
+}
+
+.card {
+  border: 1px solid $border;
+  background: $surface;
+  overflow: hidden;
+}
+
+.imageWrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background: $bg;
+
+  @include sm {
+    aspect-ratio: 16 / 9;
+  }
+}
+
+.skeletonThumb {
+  @include skeleton;
+  position: absolute;
+  inset: 0;
+  background: $surface-elevated;
+}
+
+.image {
+  object-fit: contain;
+  transition: opacity 0.3s ease;
+}
+
+.imageHidden {
+  composes: image;
+  opacity: 0;
+}
+
+.imageVisible {
+  composes: image;
+  opacity: 1;
+}
+
+.info {
+  padding: $sp-6;
+  border-top: 1px solid $border;
+}
+
+.photoTitle {
+  @include text-sm;
+  line-height: 1.625;
+  color: $text;
+  text-transform: capitalize;
+}
+
+.meta {
+  margin-top: $sp-3;
+  display: flex;
+  gap: $sp-4;
+  @include font-mono;
+  @include text-xs;
+  color: $text-secondary;
+}

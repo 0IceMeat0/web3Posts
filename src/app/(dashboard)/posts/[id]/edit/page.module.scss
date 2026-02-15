@@ -1,0 +1,39 @@
+@use "@/shared/styles/variables" as *;
+@use "@/shared/styles/mixins" as *;
+@use "@/shared/styles/animations" as *;
+
+.header {
+  margin-bottom: $sp-8;
+}
+
+.backLink {
+  display: inline-block;
+  margin-bottom: $sp-4;
+  @include font-mono;
+  @include text-xs;
+  color: $text-secondary;
+  text-decoration: none;
+  @include transition-colors;
+
+  &:hover {
+    color: $accent;
+  }
+}
+
+.title {
+  @include font-mono;
+  @include text-2xl;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: $text;
+}
+
+.titleId {
+  color: $text-secondary;
+}
+
+.card {
+  border: 1px solid $border;
+  background: $surface;
+  padding: $sp-6;
+}

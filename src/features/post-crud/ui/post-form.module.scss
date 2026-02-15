@@ -1,0 +1,88 @@
+@use "@/shared/styles/variables" as *;
+@use "@/shared/styles/mixins" as *;
+@use "@/shared/styles/animations" as *;
+
+.form {
+  @include fade-slide-up;
+  display: flex;
+  flex-direction: column;
+  gap: $sp-5;
+}
+
+.label {
+  display: block;
+  margin-bottom: $sp-1 + 0.125rem;
+  @include font-mono;
+  @include text-xs;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: $text-secondary;
+}
+
+.input {
+  width: 100%;
+  padding: $sp-3;
+  @include font-mono;
+  @include text-sm;
+  background: $surface;
+  border: 1px solid $border;
+  color: $text;
+  outline: none;
+  @include transition-colors;
+
+  &::placeholder { color: $text-secondary; }
+  &:focus { border-color: $accent; }
+}
+
+.textarea {
+  composes: input;
+  resize: vertical;
+  line-height: 1.625;
+  font-family: $font-sans;
+}
+
+.fieldError {
+  margin-top: $sp-1;
+  @include font-mono;
+  @include text-xs;
+  color: $danger;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: $sp-3;
+}
+
+.submitBtn {
+  @include hover-spring;
+  padding: $sp-2 + 0.125rem $sp-6;
+  @include gradient-bg;
+  @include font-mono;
+  @include text-sm;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: none;
+  cursor: pointer;
+  @include transition-colors;
+
+  &:hover { opacity: 0.85; }
+  &:disabled { opacity: 0.5; cursor: not-allowed; }
+}
+
+.cancelBtn {
+  display: inline-block;
+  padding: $sp-2 + 0.125rem $sp-6;
+  border: 1px solid $border;
+  @include font-mono;
+  @include text-sm;
+  color: $text-secondary;
+  text-decoration: none;
+  @include transition-colors;
+
+  &:hover {
+    border-color: $text-secondary;
+    color: $text;
+  }
+}

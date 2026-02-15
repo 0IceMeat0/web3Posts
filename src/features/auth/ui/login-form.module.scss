@@ -1,0 +1,76 @@
+@use "@/shared/styles/variables" as *;
+@use "@/shared/styles/mixins" as *;
+@use "@/shared/styles/animations" as *;
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: $sp-4;
+}
+
+.field {}
+
+.label {
+  display: block;
+  margin-bottom: $sp-1;
+  @include font-mono;
+  @include text-xs;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: $text-secondary;
+}
+
+.input {
+  width: 100%;
+  padding: $sp-3;
+  @include font-mono;
+  @include text-sm;
+  background: $surface;
+  border: 1px solid $border;
+  color: $text;
+  outline: none;
+  @include transition-colors;
+
+  &::placeholder {
+    color: $text-secondary;
+  }
+
+  &:focus {
+    border-color: $accent;
+  }
+}
+
+.error {
+  @include fade-in;
+  border-left: 2px solid $danger;
+  background: $danger-muted;
+  padding: $sp-2 $sp-3;
+  @include font-mono;
+  @include text-xs;
+  color: $danger;
+}
+
+.submit {
+  @include hover-spring;
+  margin-top: $sp-2;
+  width: 100%;
+  padding: $sp-3;
+  @include gradient-bg;
+  @include font-mono;
+  @include text-sm;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: none;
+  cursor: pointer;
+  @include transition-colors;
+
+  &:hover {
+    opacity: 0.85;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}

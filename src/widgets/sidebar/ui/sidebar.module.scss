@@ -1,0 +1,257 @@
+@use "@/shared/styles/variables" as *;
+@use "@/shared/styles/mixins" as *;
+
+$sidebar-w: 12rem;
+$sidebar-collapsed-w: 4.5rem;
+$gradient: linear-gradient(135deg, #9557e8, #4657e5, #13dbf5);
+
+.desktop {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: $sidebar-w;
+  flex-direction: column;
+  border-right: 1px solid $border;
+  background: $surface;
+  z-index: 20;
+  overflow-y: auto;
+  overflow-x: hidden;
+  transition: width 0.25s ease;
+
+  @include md {
+    display: flex;
+  }
+}
+
+.desktopCollapsed {
+  composes: desktop;
+  width: $sidebar-collapsed-w;
+}
+
+.spacer {
+  display: none;
+  width: $sidebar-w;
+  flex-shrink: 0;
+  transition: width 0.25s ease;
+
+  @include md {
+    display: block;
+  }
+}
+
+.spacerCollapsed {
+  composes: spacer;
+  width: $sidebar-collapsed-w;
+}
+
+.collapseBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: $sp-2 0;
+  border: none;
+  border-bottom: 1px solid $border;
+  background: transparent;
+  color: $text-secondary;
+  @include font-mono;
+  @include text-sm;
+  cursor: pointer;
+  @include transition-colors;
+  flex-shrink: 0;
+
+  &:hover {
+    background: $surface-elevated;
+    color: $accent;
+  }
+}
+
+.hamburger {
+  position: fixed;
+  right: $sp-4;
+  top: $sp-4;
+  z-index: 50;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 2px;
+  border: none;
+  border-radius: 50% !important;
+  background: $gradient;
+  cursor: pointer;
+  transition: right 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+    transform 0.2s ease;
+
+  &:active {
+    transform: scale(0.92);
+  }
+
+  @include md {
+    display: none;
+  }
+}
+
+.hamburgerOpen {
+  composes: hamburger;
+  right: calc(#{$sidebar-w} + #{$sp-3});
+}
+
+.hamburgerInner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background: $surface;
+  border-radius: 50% !important;
+  @include font-mono;
+  font-size: 1rem;
+  color: $text;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  background: rgba($bg, 0.8);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+
+  @include md {
+    display: none;
+  }
+}
+
+.overlayVisible {
+  composes: overlay;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.drawer {
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 40;
+  display: flex;
+  height: 100%;
+  width: $sidebar-w;
+  flex-direction: column;
+  background: $surface;
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transform: translateX(100%);
+
+  @include md {
+    display: none;
+  }
+}
+
+.drawerOpen {
+  composes: drawer;
+  transform: translateX(0);
+}
+
+.brand {
+  border-bottom: 1px solid $border;
+  padding: $sp-5;
+  flex-shrink: 0;
+}
+
+.brandLink {
+  display: flex;
+  align-items: center;
+  gap: $sp-3;
+  text-decoration: none;
+}
+
+.brandName {
+  @include font-mono;
+  @include text-lg;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: $text;
+  white-space: nowrap;
+}
+
+.nav {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: $sp-1;
+  padding: $sp-3;
+}
+
+.navLink {
+  display: flex;
+  align-items: center;
+  gap: $sp-3;
+  padding: $sp-2 + 0.125rem $sp-3;
+  @include font-mono;
+  @include text-sm;
+  text-decoration: none;
+  border-left: 2px solid transparent;
+  color: $text-secondary;
+  white-space: nowrap;
+  @include transition-colors;
+
+  &:hover {
+    background: $surface-elevated;
+    color: $text;
+  }
+}
+
+.navLinkActive {
+  composes: navLink;
+  @include gradient-border-left;
+  background: $accent-muted;
+  color: $accent;
+}
+
+.navIcon {
+  font-size: 1rem;
+  flex-shrink: 0;
+  width: 1.25rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.userSection {
+  border-top: 1px solid $border;
+  padding: $sp-4;
+}
+
+.userEmail {
+  margin-bottom: $sp-2;
+  @include font-mono;
+  @include text-xs;
+  color: $text-secondary;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.logoutBtn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $sp-2;
+  border: 1px solid $border;
+  padding: $sp-2 $sp-3;
+  @include font-mono;
+  @include text-xs;
+  color: $text-secondary;
+  background: transparent;
+  cursor: pointer;
+  white-space: nowrap;
+  @include transition-colors;
+
+  &:hover {
+    border-color: $danger;
+    color: $danger;
+  }
+}

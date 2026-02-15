@@ -1,0 +1,100 @@
+@use "@/shared/styles/variables" as *;
+@use "@/shared/styles/mixins" as *;
+@use "@/shared/styles/animations" as *;
+
+.header {
+  margin-bottom: $sp-8;
+}
+
+.backLink {
+  display: inline-block;
+  margin-bottom: $sp-4;
+  @include font-mono;
+  @include text-xs;
+  color: $text-secondary;
+  text-decoration: none;
+  @include transition-colors;
+
+  &:hover {
+    color: $accent;
+  }
+}
+
+.titleRow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: $sp-4;
+}
+
+.title {
+  @include font-mono;
+  @include text-2xl;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: $text;
+  text-transform: capitalize;
+}
+
+.titleId {
+  color: $text-secondary;
+}
+
+.editLink {
+  flex-shrink: 0;
+  padding: $sp-2 $sp-4;
+  border: 1px solid $border;
+  @include font-mono;
+  @include text-xs;
+  color: $text-secondary;
+  text-decoration: none;
+  @include transition-colors;
+
+  &:hover {
+    border-color: $accent;
+    color: $accent;
+  }
+}
+
+.card {
+  border: 1px solid $border;
+  background: $surface;
+  padding: $sp-6;
+  margin-bottom: $sp-6;
+}
+
+.body {
+  @include text-sm;
+  line-height: 1.75;
+  color: $text-secondary;
+  white-space: pre-line;
+}
+
+.meta {
+  margin-top: $sp-4;
+  padding-top: $sp-4;
+  border-top: 1px solid $border;
+  @include font-mono;
+  @include text-xs;
+  color: $text-secondary;
+}
+
+.commentsSection {
+  border: 1px solid $border;
+  background: $surface;
+}
+
+.commentsHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: $sp-4 $sp-6;
+  border-bottom: 1px solid $border;
+}
+
+.commentsTitle {
+  @include font-mono;
+  @include text-sm;
+  font-weight: 700;
+  color: $text;
+}
