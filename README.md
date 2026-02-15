@@ -8,6 +8,7 @@ npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000).
+Or u can check prod [https://web3posts.vercel.app/](https://web3posts.vercel.app/).
 
 ---
 
@@ -22,12 +23,12 @@ Open [http://localhost:3000](http://localhost:3000).
 
 ## Structure (`src/`)
 
-| Folder      | Description                                           |
-|-------------|-------------------------------------------------------|
-| `app/`      | Routes and layouts (Next.js App Router)               |
-| `entities/` | Business entities: post, comment, photo (API, UI)     |
-| `features/` | Features: auth, post-crud                             |
-| `widgets/`  | Widgets: sidebar, post-list, photo-gallery            |
-| `shared/`   | Shared: UI components, styles, API, hooks, utilities  |
+| Folder      | Description                                          |
+| ----------- | ---------------------------------------------------- |
+| `app/`      | Routes and layouts (Next.js App Router)              |
+| `entities/` | Business entities: post, comment, photo (API, UI)    |
+| `features/` | Features: auth, post-crud                            |
+| `widgets/`  | Widgets: sidebar, post-list, photo-gallery           |
+| `shared/`   | Shared: UI components, styles, API, hooks, utilities |
 
 Architecture: [Feature-Sliced Design](https://feature-sliced.design/).
